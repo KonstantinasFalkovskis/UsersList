@@ -8,3 +8,6 @@ Application have got Crud functionalities as:
   - delete entity;
   
 For data persistance, as a database, used Jpa technology without any data base. Also project use dinamical modals to showing views.
+
+spring-boot logo
+Spring Boot
