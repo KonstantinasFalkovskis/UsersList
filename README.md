@@ -9,5 +9,5 @@ Application have got Crud functionalities as:
   
 For data persistance, as a database, used Jpa technology without any data base. Also project use dinamical modals to showing views.
 
-<img src="src/main/resources/static/images"/>
+<img src="images/spring-boot.png"/>
 Spring Boot 2.0.0 Release framework
