@@ -39,7 +39,10 @@ public class UsersController {
         return "redirect:/";
     }
 
-    
-
+    @RequestMapping("/delete/{id}")
+    public String delete(Integer id) {
+        usersDao.deleteById(id);
+        return "redirect:/";
+    }
 
 }
