@@ -30,7 +30,7 @@ public class UsersController {
     public String showListOfUsers(Model model, @RequestParam(defaultValue = "0") int page) {
             model.addAttribute("data", usersDao.findAll(new PageRequest(page, 6)));
             model.addAttribute("currentPage", page);
-        return "return:/";
+        return "index";
     }
 
     //method persist() for save item to Jpa virtual data base;
