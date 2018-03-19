@@ -24,6 +24,7 @@ public class DemoApplication implements CommandLineRunner{
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	//test data to input to virtual Jpa data base
 	@Override
 	public void run(String... args) throws Exception {
 		usersDao.save(new User("Admin", "root", "admin@admin.com"));
