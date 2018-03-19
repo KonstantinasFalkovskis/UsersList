@@ -1,18 +1,22 @@
+/**
+ * @Author Falco Constantine
+ * @Project Users list
+ * @Version 1.0
+ * @Date 2018.03.17
+ *
+ */
 package com.example.demo.controllers;
 
 import com.example.demo.dao.UsersDao;
 import com.example.demo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Optional;
 
 @Controller
 public class UsersController {
