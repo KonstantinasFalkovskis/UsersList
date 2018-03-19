@@ -30,19 +30,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @NotBlank
-    @Size(min = 3, max = 20)
     private String username;
-
-    @NotBlank
-    @Size(min = 3, max = 50)
     private String password;
-
-    @NotBlank
-    @UniqueElements
-    @Email
-    @Size(max = 50)
     private String email;
 
     /**
@@ -51,9 +40,7 @@ public class User {
     public User() {
     }
 
-    public User(@NotBlank @Size(min = 3, max = 20)
-                        String username, @NotBlank @Size(min = 3, max = 50)
-            String password, @NotBlank @UniqueElements @Email @Size(max = 50) String email) {
+    public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
