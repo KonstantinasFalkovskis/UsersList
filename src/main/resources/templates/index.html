@@ -1,10 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel ="stylesheet" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <script type="text/javascript" th:src="@{js/bottom.css}" src="../static/js/bottom.css"></script>
+    <script type ="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{js/main.js}" src="../static/js/main.js"></script>
+    <script type ="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+
     <title>Users list</title>
+
 </head>
 <body>
-Here will be users list code :)
+<div>
+    <h3 class="alert alert-light">Users list</h3>
+</div>
+<div class="bottom">
+    <div class="col">
+        <button class="btn btn-success nBtn"> New user </button>
+    </div>
+    <div class="col">
+        <!--<div class="container">-->
+        <div>
+            <button class="btn btn-success nBtn"> New country </button>
+            <div class="card">
+                <div class="card-block">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>USER ID</th>
+                            <th>USER NAME</th>
+                            <th>USER PASSWORD</th>
+                            <th>USER EMAIL</th>
+                            <th> </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each ="users :${data.content}">
+                            <td th:text="${users.id}"></td>
+                            <td th:text ="${users.name}"></td>
+                            <td th:text ="${users.password}"></td>
+                            <td th:text ="${users.email}"></td>
+                            <td>
+                                <a th:href="@{delete/(id=${users.id})}" class="btn btn-danger delBtn">Delete</a>
+                                <a th:href="@{edit/(id=${users.id})}" class="btn btn-primary eBtn">Edit</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <hr/>
+                    <ul class="nav nav-pills">
+                        <li class="nav item" th:each="i : ${#numbers.sequence(0, data.totalPages - 1)}">
+                            <a th:href="@{/(page=${i})}" th:text="${i}" class="nav-link"
+                               th:classappend="${currentPage}==${i}?'active':''"></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+            <!--#Modal form for user update-->
+            <div class="myFormUpdate">
+                <form th:action="@{/save}" method="post">
+                    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModalLabel">Update User</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="alert alert-info">
+                                        Input data to the fields
+                                    </p>
+                                    <div class="form-group">
+                                        <label for="id" class="col-form-label">User id:</label>
+                                        <input type="text" class="form-control" id="id" name="id" value=""/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="username" class="col-form-label">User name:</label>
+                                        <input type="text" class="form-control" id="username" name="username" value=""/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-form-label">User password:</label>
+                                        <input type="text" class="form-control" id="password" name="password" value=""/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-form-label">User email:</label>
+                                        <input type="text" class="form-control" id="email" name="email" value=""/>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary" value="Save"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--End update form-->
+
+            <!--#Modal for user create-->
+            <div class="myFormCreate">
+                <form th:action="@{/save}" method="post">
+                    <div class="modal fade" id="myModalCreate" tabindex="-1" role="dialog" aria-labelledby="modalLabelCreate" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabelCreate">Create user</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="alert alert-info">
+                                        Input data to the fields
+                                    </p>
+
+                                    <div class="form-group">
+                                        <label for="username" class="col-form-label">User name:</label>
+                                        <input type="text" class="form-control" id="username" name="username" value=""/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-form-label">User password:</label>
+                                        <input type="text" class="form-control" id="password" name="password" value=""/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-form-label">User email:</label>
+                                        <input type="text" class="form-control" id="email" name="email" value=""/>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary" value="Save"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--End form-->
+
+            <!-- #Modal for removing users -->
+            <div class="modal fade" id="removeModalCenter" tabindex="-1" role="dialog" aria-labelledby="removeModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="removeModalCenterTitle">Alert message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="alert alert-danger">
+                                Are You sure You want to delete this User?
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="" class="btn btn-danger" id="delRef">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 </body>
 </html>
