@@ -14,8 +14,12 @@ For data persistance, as a database, used Jpa technology without any data base. 
 <img src="images/list.png" title = "Users list form database"/>
 User have gote oportunity see all intities are in database. Here simple pagination functionality is possible. 
 
-<h3>Users list form database</h3>
+<h3>New user adding</h3>
 <img src="images/addNewUser.png" title = "Create new user"/>
-User can create new intities. 
+User can create new intities. New user adding function calling on dinamical modal.
+
+<h3>Existing user updating</h3>
+<img src="images/editUser.png" title = "Create new user"/>
+User can updateexisting intities. Updating function also calling on dinamical modal.
 
 <h4>Technologies: Spring Boot 2.0.0, JPA, Web,Dev-tools technologies, Thymeleaf + Bootstrap frameforks and jQuery</h4>
