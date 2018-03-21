@@ -10,4 +10,7 @@ Application have got Crud functionalities as:
   
 For data persistance, as a database, used Jpa technology without any data base. Also project use dinamical modals to showing views.
 
-<h3>Technologies: Spring Boot 2.0.0, JPA, Web,Dev-tools technologies, Thymeleaf + Bootstrap frameforks and jQuery</h3>
+<h4>List of users in database</h4>
+<img src="images/list.png" title = "Users list form database"/>
+
+<h4>Technologies: Spring Boot 2.0.0, JPA, Web,Dev-tools technologies, Thymeleaf + Bootstrap frameforks and jQuery</h4>
