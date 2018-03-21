@@ -13,10 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 public class UsersController {
@@ -34,21 +33,22 @@ public class UsersController {
     }
 
     //method persist() for save item to Jpa virtual data base;
-    @PostMapping("/save")
-    public String persist(User users) {
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String save(User users) {
         usersDao.save(users);
         return "redirect:/";
     }
 
     //method update for find & edit item by item Id;
-    @RequestMapping("/edit/{id}")
-    public String update(Integer id) {
-        usersDao.findById(id);
-        return "redirect:/";
+    @GetMapping("/edit")
+    @ResponseBody
+    public Optional<User> update(Integer id) {
+        return usersDao.findById(id);
+
     }
 
     //methode delete for removing item from Jpa data base. Item finding implements also by item id;
-    @RequestMapping("/delete/{id}")
+    @GetMapping("/delete")
     public String delete(Integer id) {
         usersDao.deleteById(id);
         return "redirect:/";
