@@ -22,7 +22,6 @@ $(document).ready(function(){
             $('.myFormUpdate #updateModal').modal();
         } else {
             //for creating user
-            // $('.myFormCreate #id').val('');
             $('.myFormCreate #username').val('');
             $('.myFormCreate #password').val('');
             $('.myFormCreate #email').val('');
