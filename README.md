@@ -19,7 +19,11 @@ User have gote oportunity see all intities are in database. Here simple paginati
 User can create new intities. New user adding function calling on dinamical modal.
 
 <h3>Existing user updating</h3>
-<img src="images/editUser.png" title = "Create new user"/>
-User can updateexisting intities. Updating function also calling on dinamical modal.
+<img src="images/editUser.png" title = "Update existing user"/>
+User can update existing intities. Updating function also calling on dinamical modal.
+
+<h3>Existing user removing</h3>
+<img src="images/removeUser.png" title = "Remove existing user"/>
+User can remove existing intities. To showing alert message calling dinamical modal.
 
 <h4>Technologies: Spring Boot 2.0.0, JPA, Web,Dev-tools technologies, Thymeleaf + Bootstrap frameforks and jQuery</h4>
