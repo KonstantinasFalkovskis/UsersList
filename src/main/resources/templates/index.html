@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel ="stylesheet" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
@@ -17,13 +16,11 @@
     <h3 class="alert alert-light">Users list</h3>
 </div>
 <div class="bottom">
+
     <div class="col">
-        <button class="btn btn-success nBtn"> New user </button>
-    </div>
-    <div class="col">
-        <!--<div class="container">-->
-        <div>
-            <button class="btn btn-success nBtn"> New country </button>
+        <div class="container">
+
+            <button class="btn btn-success nBtn"> New user </button>
             <div class="card">
                 <div class="card-block">
                     <table class="table table-hover">
@@ -39,7 +36,7 @@
                         <tbody>
                         <tr th:each ="users :${data.content}">
                             <td th:text="${users.id}"></td>
-                            <td th:text ="${users.name}"></td>
+                            <td th:text ="${users.username}"></td>
                             <td th:text ="${users.password}"></td>
                             <td th:text ="${users.email}"></td>
                             <td>
@@ -78,8 +75,8 @@
                                         Input data to the fields
                                     </p>
                                     <div class="form-group">
-                                        <label for="id" class="col-form-label">User id:</label>
-                                        <input type="text" class="form-control" id="id" name="id" value=""/>
+                                        <!--<label for="id" class="col-form-label">User id:</th:text></label>-->
+                                        <input type="hidden" class="form-control" id="id" name="id" value=""/>
                                     </div>
                                     <div class="form-group">
                                         <label for="username" class="col-form-label">User name:</label>
@@ -158,7 +155,7 @@
                         </div>
                         <div class="modal-body">
                             <p class="alert alert-danger">
-                                Are You sure You want to delete this User?
+                               Are You sure You want to delete this User?
                             </p>
                         </div>
                         <div class="modal-footer">
@@ -168,8 +165,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+      
 
+    </div>
     </div>
 </div>
 
