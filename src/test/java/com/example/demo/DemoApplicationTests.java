@@ -1,8 +1,14 @@
+/**
+ * @Author Falco Constantine
+ * @Project Users list
+ * @Version 1.0
+ * @Date 2018.03.22
+ *
+ */
 package com.example.demo;
 
 import com.example.demo.dao.UsersDao;
 import com.example.demo.entity.User;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +26,7 @@ public class DemoApplicationTests {
 	@Autowired
 	private UsersDao usersDao;
 
+	//test for User list add/ipdate/delete functions
 	@Test
 	public void testNewUser() {
 		User user = new User("testUser", "123", "test@gmail.com");
