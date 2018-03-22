@@ -9,6 +9,10 @@ package com.example.demo.controllers;
 
 import com.example.demo.dao.UsersDao;
 import com.example.demo.entity.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -24,6 +28,8 @@ public class UsersController {
     @Autowired
     private UsersDao usersDao;
 
+    private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
+
     //method for users list viewing + pagination. Default is 6 items per page;
     @GetMapping("/")
     public String showListOfUsers(Model model, @RequestParam(defaultValue = "0") int page) {
@@ -36,6 +42,7 @@ public class UsersController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(User users) {
         usersDao.save(users);
+        logger.info("New user was created " + users);
         return "redirect:/";
     }
 
@@ -43,14 +50,15 @@ public class UsersController {
     @GetMapping("/edit")
     @ResponseBody
     public Optional<User> update(Integer id) {
+        logger.info("User has been updated. Users id: " + id);
         return usersDao.findById(id);
-
     }
 
     //methode delete for removing item from Jpa data base. Item finding implements also by item id;
     @GetMapping("/delete")
     public String delete(Integer id) {
         usersDao.deleteById(id);
+        logger.info("User has been removed. Users id: " + id);
         return "redirect:/";
     }
 
