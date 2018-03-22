@@ -10,7 +10,10 @@ Application have got Crud functionalities as:
   
 For data persistance, as a database, used Jpa technology without any data base. Also project use dinamical modals to showing views.
 
-<h5>So  this web application example is very easy and simple to beginners to learning becaose of simple implementation of code. Web application test also are included. I hope my web application let You better understand Spring framework especially Spring boot & Jpa persistance and data handling. Have a nice learning. </h5>
+<li>So  this web application example is very easy and simple to beginners to learning becaose of simple implementation of code. 
+<li>Web application test also are included. 
+    
+I hope my web application let You better understand Spring framework especially Spring boot & Jpa persistance and data handling. Have a nice learning.  
 
 <h3>Users list form database</h3>
 <img src="images/list.png" title = "Users list form database"/>
