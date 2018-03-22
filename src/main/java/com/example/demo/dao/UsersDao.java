@@ -15,5 +15,5 @@ import java.util.Optional;
 
 @Repository
 public interface UsersDao extends JpaRepository<User, Integer> {
-
+//no methods here
 }
